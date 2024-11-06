@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inschrijven LDC</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <nav class="navbar has-background-warning mb-6 p-2 is-flex is-justify-content-center" role="navigation"
+        aria-label="main navigation">
+        <div class="navbar-brand">
+            <p class="is-size-3 is-italic has-text-black">Legacy Dance Competition</p>
+        </div>
+    </nav>
+
+    <div class="container is-fluid columns is-centered">
+        <div class="column is-half">
+            <form action="mail.php" method="POST">
+
+                <div class="mb-6">
+                    <div class="field is-grouped">
+                        <div class="control is-expanded">
+                            <label class="label" for="naamVereniging">Naam dansstudio / vereniging</label>
+                            <input class="input" type="text" name="naamVereniging" id="naamVereniging" required>
+                        </div>
+                        <div class="control is-expanded">
+                            <label class="label" for="plaatsVereniging">Plaats dansstudio / vereniging</label>
+                            <input class="input" type="text" name="plaatsVereniging" id="plaatsVereniging" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <p class="label is-size-5 has-text-warning">Factuurgegevens</p>
+                    <div class="field is-grouped">
+                        <div class="control is-expanded">
+                            <label class="label" for="voornaam">Voornaam</label>
+                            <input class="input" type="text" name="voornaam" id="voornaam" required>
+                        </div>
+                        <div class="control is-expanded">
+                            <label class="label" for="achternaam">Achternaam</label>
+                            <input class="input" type="text" name="achternaam" id="achternaam" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control is-expanded">
+                            <label class="label" for="contactTel">Telefoonnummer</label>
+                            <input class="input" type="tel" name="contactTel" id="contactTel" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control is-expanded">
+                            <label class="label" for="contactEmail">Email</label>
+                            <input class="input" type="email" name="contactEmail" id="contactEmail" required>
+                        </div>
+                    </div>
+                    <div class="field is-grouped">
+                        <div class="control is-expanded">
+                            <label class="label" for="straatnaam">Straatnaam</label>
+                            <input class="input" type="text" name="straatnaam" id="straatnaam" required>
+                        </div>
+                        <div class="control is-expanded">
+                            <label class="label" for="huisnummer">Huisnummer</label>
+                            <input class="input" type="number" name="huisnummer" id="huisnummer" required>
+                        </div>
+                    </div>
+                    <div class="field is-grouped">
+                        <div class="control is-expanded">
+                            <label class="label" for="postcode">Postcode</label>
+                            <input class="input" type="text" name="postcode" id="postcode" required>
+                        </div>
+                        <div class="control is-expanded">
+                            <label class="label" for="woonplaats">Woonplaats</label>
+                            <input class="input" type="text" name="woonplaats" id="woonplaats" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <p class="label is-size-5 has-text-warning">Coach(es)</p>
+                    <div class="field is-grouped">
+                        <div class="control is-expanded">
+                            <label class="label" for="naam">Naam</label>
+                            <input class="input" type="text" name="naam" id="naam" required>
+                        </div>
+                        <div class="control is-expanded">
+                            <label class="label" for="telefoon">Telefoonnummer</label>
+                            <input class="input" type="tel" name="telefoon" id="telefoon" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control is-expanded">
+                            <label class="label" for="email">Email</label>
+                            <input class="input" type="email" name="email" id="email" autocomplete="email" required>
+                        </div>
+                    </div>
+                    <div class="coachesList"></div>
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button type="button" class="button" name="addCoach" id="addCoach">+</button>
+                        </div>
+                        <div class="control">
+                            <button type="button" class="button" name="deleteCoach" id="deleteCoach">-</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <p class="label is-size-5 has-text-warning">Team(s)</p>
+                    <div class="field">
+                        <div class="control is-expanded">
+                            <label class="label" for="teamnaam">Teamnaam</label>
+                            <input class="input" type="text" name="teamnaam" id="teamnaam">
+                        </div>
+                    </div>
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <label class="label" for="categorieTeam">Categorie</label>
+                            <div class="select">
+                                <select name="categorieTeam" id="categorieTeam">
+                                    <option></option>
+                                    <option>Recreatie 5 t/m 8 jaar</option>
+                                    <option>Selectie 5 t/m 8 jaar</option>
+                                    <option>Recreatie 9 t/m 10 jaar</option>
+                                    <option>Recreatie 11 t/m 12 jaar</option>
+                                    <option>Selectie 9 t/m 12 jaar</option>
+                                    <option>Demo 9 t/m 12 jaar</option>
+                                    <option>Recreatie 13 t/m 16 jaar</option>
+                                    <option>Selectie 13 t/m 16 jaar</option>
+                                    <option>Demo 13 t/m 16 jaar</option>
+                                    <option>Recreatie 17 jaar en ouder</option>
+                                    <option>Selectie 17 jaar en ouder</option>
+                                    <option>Demo 17 jaar en ouder</option>
+                                    <option>Recreatie 30+</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control is-expanded">
+                            <label class="label" for="aantalDansers">Aantal dansers</label>
+                            <input class="input" type="number" name="aantalDansers" id="aantalDansers">
+                        </div>
+                    </div>
+                    <div class="teamsList"></div>
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button type="button" class="button" name="addTeam" id="addTeam">+</button>
+                        </div>
+                        <div class="control is-expanded">
+                            <button type="button" class="button" name="deleteTeam" id="deleteTeam">-</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <p class="label is-size-5 has-text-warning">Duo(s)</p>
+                    <div class="field is-grouped">
+                        <div class="control is-expanded">
+                            <label class="label" for="namenDansers">Namen dansers</label>
+                            <input class="input" type="text" name="namenDansers" id="namenDansers">
+                        </div>
+                        <div class="control">
+                            <label class="label" for="categorieDuo">Categorie</label>
+                            <div class="select">
+                                <select name="categorieDuo" id="categorieDuo">
+                                    <option></option>
+                                    <option>5 t/m 8 jaar</option>
+                                    <option>9 t/m 10 jaar</option>
+                                    <option>11 t/m 12 jaar</option>
+                                    <option>13 t/m 16 jaar</option>
+                                    <option>17 jaar en ouder</option>
+                                    <option>30+</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="duosList"></div>
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button type="button" class="button" name="addDuo" id="addDuo">+</button>
+                        </div>
+                        <div class="control">
+                            <button type="button" class="button" name="deleteDuo" id="deleteDuo">-</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <div class="field">
+                        <label class="label" for="opmerkingen">Opmerkingen (optioneel)</label>
+                        <div class="control">
+                            <textarea class="textarea" name="opmerkingen" id="opmerkingen"></textarea>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-warning" name="submit">Inschrijven</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <footer class="has-background-grey-lighter p-5">
+        <p>&copy; 2024 Aniek Hulshof</p>
+    </footer>
+
+</body>
+
+</html>
